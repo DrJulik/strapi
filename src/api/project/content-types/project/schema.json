@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "projects"
+    "displayName": "projects",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,36 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "main_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image_gallery": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Kitchen",
+        "Closet"
+      ]
     }
   }
 }
