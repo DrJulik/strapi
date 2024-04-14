@@ -19,24 +19,26 @@
       "type": "text"
     },
     "main_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "image_gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "category": {
       "type": "enumeration",
@@ -44,6 +46,9 @@
         "Kitchen",
         "Closet"
       ]
+    },
+    "featured": {
+      "type": "boolean"
     }
   }
 }

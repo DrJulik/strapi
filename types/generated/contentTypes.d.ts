@@ -783,6 +783,7 @@ export interface ApiBlogpostBlogpost extends Schema.CollectionType {
     title: Attribute.String;
     text: Attribute.Text;
     image: Attribute.Media;
+    featured: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -818,6 +819,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     main_image: Attribute.Media;
     image_gallery: Attribute.Media;
     category: Attribute.Enumeration<['Kitchen', 'Closet']>;
+    featured: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
