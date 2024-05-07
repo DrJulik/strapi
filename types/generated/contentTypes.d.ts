@@ -818,7 +818,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     description: Attribute.Text;
     main_image: Attribute.Media;
     image_gallery: Attribute.Media;
-    category: Attribute.Enumeration<['Kitchen', 'Closet']>;
+    category: Attribute.Enumeration<['Kitchen', 'Closet', 'Vanity']>;
     featured: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
