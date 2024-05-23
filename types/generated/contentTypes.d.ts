@@ -802,6 +802,41 @@ export interface ApiBlogpostBlogpost extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    project: Attribute.Relation<
+      'api::category.category',
+      'manyToOne',
+      'api::project.project'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -818,8 +853,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
     description: Attribute.Text;
     main_image: Attribute.Media;
     image_gallery: Attribute.Media;
-    category: Attribute.Enumeration<['Kitchen', 'Closet', 'Vanity']>;
     featured: Attribute.Boolean;
+    categories: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -857,6 +896,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::blogpost.blogpost': ApiBlogpostBlogpost;
+      'api::category.category': ApiCategoryCategory;
       'api::project.project': ApiProjectProject;
     }
   }

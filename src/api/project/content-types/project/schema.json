@@ -40,16 +40,14 @@
         "audios"
       ]
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Kitchen",
-        "Closet",
-        "Vanity"
-      ]
-    },
     "featured": {
       "type": "boolean"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "project"
     }
   }
 }
